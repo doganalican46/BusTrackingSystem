@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+
+{% block body %}
+
+<style>
+    .content {
+        margin-top: 300px;
+        display: flex;
+        align-items: center;
+    }
+    
+    #b1,
+    #b2 {
+        margin-left: 5px;
+        display: inline-block;
+        padding: 15px 25px;
+        border-radius: 15px;
+        font-size: 10pxrem;
+    }
+
+    #b1:hover,
+    #b2:hover {
+        color: black;
+        background-color: rgb(255, 255, 255);
+        opacity: 0.7;
+    }
+</style>
+
+
+
+<div class="content">
+    <h3 id="bas">BUS TRACKING SYSTEM</h3>
+    <br>
+    {% if session["logged_in"] %}
+    <h4 style=color:yellowgreen;>Welcome to bus tracking system {{session["username"]}}...</h4>
+    {% else %}
+    <p>
+        Would you like to instantly see the location of the anything, which stops it passes and how far it is from the stop you are at?
+    </p> <br><br>
+    <form action="/giris-yap/">
+        <input id="b1" type="submit" value="LOG IN" class="btn btn-success" />
+    </form>
+    <form action="/kaydol/">
+        <input id="b2" type="submit" value="REGISTER" class="btn btn-success" />
+    </form>
+
+    {% endif %}
+</div>
+
+{% endblock body %}

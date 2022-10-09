@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Find Route
+{% endblock %}
+
+{% block body %}
+<style>
+	#map {
+		right: -25%;
+	}
+</style>
+
+<div class="row">
+
+	<form id="sorgu">
+		<h3>Find Route</h3>
+		<div class="inputBox">
+			<i class="fas fa-magnifying-glass-location"></i>
+			<input type="text" placeholder="Type starting point..." />
+		</div>
+		<div class="inputBox">
+			<i class="fas fa-magnifying-glass-location"></i>
+			<input type="text" placeholder="Type ending point..." />
+		</div>
+		<br>
+		<input type="submit" class="btn btn-success" value="Find Route" />
+	</form>
+	<div id="map" style="margin-right:auto; width:80%; height: 88vh"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+
+<script>
+
+	var map = L.map('map').setView([37.575275, 36.922821], 11);
+	mapLink = "<a href='http://openstreetmap.org'>OpenStreetMap</a>";
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: 'Leaflet &copy; ' + mapLink + ', contribution', maxZoom: 18 }).addTo(map);
+
+	var busIcon = L.icon({
+		iconUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR__xeS3qtf6xkFrpoqO0_b2P7sIY8g88DNkA&usqp=CAU",
+		iconSize: [25, 25]
+	})
+
+	var stationIcon = L.icon({
+		iconUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtAdA_1UzTgiFDZfxddc9zPS67VfLlZEvggg&usqp=CAU",
+		iconSize: [20, 20]
+	})
+
+	var marker = L.marker([37.575275, 36.922821], { icon: busIcon }).addTo(map);
+
+	map.on('click', function (e) {
+		console.log(e)
+		var newMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+		L.Routing.control({
+			waypoints: [
+				L.latLng(37.575275, 36.922821),
+				L.latLng(e.latlng.lat, e.latlng.lng)
+			]
+		}).on('routesfound', function (e) {
+			var routes = e.routes;
+			console.log(routes);
+
+			e.routes[0].coordinates.forEach(function (coord, index) {
+				setTimeout(function () {
+					marker.setLatLng([coord.lat, coord.lng]);
+				}, 100 * index)
+			})
+
+		}).addTo(map);
+	});
+
+	var durak = L.marker([37.571104, 36.922253],{ icon: stationIcon }).addTo(map);
+	var durak2 = L.marker([37.571109, 36.917695],{ icon: stationIcon }).addTo(map);
+	var durak3 = L.marker([37.568543,36.913147],{ icon: stationIcon }).addTo(map);
+	var durak4 = L.marker([37.565923,36.904139],{ icon: stationIcon }).addTo(map);
+	var durak5 = L.marker([37.562828,36.889893],{ icon: stationIcon }).addTo(map);
+	var durak6 = L.marker([37.564393,36.866665],{ icon: stationIcon }).addTo(map);
+	var durak7 = L.marker([37.574475,36.847777],{ icon: stationIcon }).addTo(map);
+	var durak8 = L.marker([	37.588079,36.834473	],{ icon: stationIcon }).addTo(map);
+	var durak9 = L.marker([	37.585563,36.824081	],{ icon: stationIcon }).addTo(map);
+	var dura10 = L.marker([	37.590987,36.827511	],{ icon: stationIcon }).addTo(map);
+
+	
+</script>
+
+{% endblock %}
