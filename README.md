@@ -1,4 +1,4 @@
-# Bus Tracking System
+![image](https://github.com/doganalican46/BusTrackingSystem/assets/76850300/4c6559d7-95ea-4b5c-b940-37bf9b7bb434)# Bus Tracking System
 ___________________________________________________________________________________________________________________
 <h3 align="left">Connect with me:</h3>
 <p align="left">
@@ -8,7 +8,7 @@ ________________________________________________________________________________
 <a href="https://instagram.com/https://www.instagram.com/can.dgn.46/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="https://www.instagram.com/can.dgn.46/" height="30" width="40" /></a>
 </p>
 
-📫 How to reach me **doganalican46@hotmail.com**
+📫 How to reach me **doganalican46@hotmail.com** or **https://www.doganalican46.dev/**
 ___________________________________________________________________________________________________________________
 ## Project Scope and Purpose:
 The main purpose of a tracking system is to determine the location or direction of a target. Basically, tracking system would maintain contact and constantly update the location. I created a basic web-site for this system.
