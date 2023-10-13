@@ -1,4 +1,4 @@
-![image](https://github.com/doganalican46/BusTrackingSystem/assets/76850300/4c6559d7-95ea-4b5c-b940-37bf9b7bb434)# Bus Tracking System
+# Bus Tracking System
 ___________________________________________________________________________________________________________________
 <h3 align="left">Connect with me:</h3>
 <p align="left">
